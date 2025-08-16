@@ -1,20 +1,15 @@
-class Mushuk():
-    def __init__(self, rang, laqab, vazn, dum, yosh):
-        self.rang = rang
-        self.laqab = laqab
-        self.vazn = vazn
-        self.dum = dum
-        self.yosh = yosh
+from ai import generate_ai_summary
+from parsing import news_single
 
-    def miyovlash(self):
-        return f"{self.laqab} miyovlaydi."
-    
-Oqmushuk = Mushuk("oq","Qoravoy",2,True,5)
+print("Quyidagilardan birini tanlang:")
+print("1 - AI javobi")
+print("2 - Yangiliklarni olish")
+tanlov = input("Tanlovingizni kiriting (1 yoki 2): ")
 
-print(f"{Oqmushuk.laqab} - {Oqmushuk.rang} rangli mushuk, vazni {Oqmushuk.vazn} kg,  {Oqmushuk.yosh} yoshda.")
-
-if Oqmushuk:
-    Oqmushuk.dum = True
-    print(f"{Oqmushuk.laqab} ni dumi bor")
+if tanlov == "1":
+    savol = input("AI ga savolingizni yozing: ")
+    generate_ai_summary(savol)
+elif tanlov == "2":
+    news_single()
 else:
-    print(f"{Oqmushuk.laqab} ni dumi yo'q")
+    print("Noto'g'ri tanlov. Iltimos, 1 yoki 2 ni kiriting.")
